@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Message for Lamiya</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Georgia', serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+        color: #333;
+        overflow-x: hidden;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+        border: 1px solid rgba(255,255,255,0.18);
+        animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .timer {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        margin: 15px 0;
+        color: #2c3e50;
+    }
+    .message { line-height: 1.8; font-size: 16px; margin-bottom: 40px; color: #2c3e50; }
+    .message p { margin-bottom: 20px; }
+
+    .button-section { text-align: center; margin-top: 30px; }
+    .action-btn {
+        background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+        border: none;
+        padding: 15px 30px;
+        border-radius: 25px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        margin: 10px;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .action-btn:hover { 
+        transform: translateY(-3px) scale(1.05); 
+        box-shadow: 0 6px 20px rgba(255,107,107,0.4); 
+    }
+
+    /* Modal Styles */
+    .modal {
+        display: none; position: fixed; z-index: 1000;
+        left: 0; top: 0; width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+        animation: fadeIn 0.5s ease;
+    }
+    .modal-content {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        margin: 15% auto; padding: 30px; border-radius: 20px;
+        width: 80%; max-width: 400px; text-align: center;
+        box-shadow: 0 8px 32px rgba(31,38,135,0.37);
+        border: 1px solid rgba(255,255,255,0.18);
+        color: white;
+        animation: slideUp 0.5s ease;
+    }
+
+    @keyframes slideUp {
+        from { transform: translateY(50px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .close { color: white; float: right; font-size: 28px; font-weight: bold; cursor: pointer; line-height: 1; transition: transform 0.2s; }
+    .close:hover { transform: scale(1.2); opacity: 0.8; }
+
+    .modal h2 { margin: 20px 0; color: #ffd93d; }
+    .modal p { margin: 15px 0; line-height: 1.6; }
+
+    .modal button {
+        background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+        border: none; padding: 10px 20px; border-radius: 15px;
+        color: white; cursor: pointer; margin-top: 15px; transition: all 0.3s ease;
+    }
+    .modal button:hover { transform: translateY(-2px) scale(1.05); }
+
+    .link-button {
+        background: linear-gradient(45deg, #ffd93d, #ff6b6b);
+        color: white; text-decoration: none; display: inline-block;
+        padding: 12px 25px; border-radius: 25px; font-weight: bold;
+        margin-top: 15px; transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255,217,61,0.3);
+    }
+    .link-button:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 6px 20px rgba(255,217,61,0.4); }
+</style>
+</head>
+<body>
+<div class="container">
+
+    <div class="message">
+        <p>Hey you little brat,</p>
+        <p>So why are you remembering me after <span class="timer" id="timer"></span>?</p>
+
+        <p>Since you’re here, Congo!!!! This is a <strong>bye bye</strong> post. The website link I gave you to talk with me is completely broken right now, and I have no reason to fix it. The actual problem is I need a database, but most free-tier databases are capped at 5GB, so I need to find a new one. If I find one, I’ll fix it which is unlikely. So happy 😊.</p>
+
+        <p>You don’t have to remember me anymore. I know you never will. Sorry for disturbing you by commenting or messaging; it won’t happen anymore. I have so many things to say to you, but I don’t think I should right now.</p>
+
+        <p>Talking about you… I mean, are you serious when you say you’re not a great friend? Bruh, you really are a good friend, and I’m lucky that I’m your <strong>biggeeeesssstttttt enemy 😇</strong>. Anyway, I don’t think I have to tell you anything. You’re not gonna remember anything about me, so that’s it.</p>
+
+        <p>[Edited]</p>
+    </div>
+
+    <div class="button-section">
+        <button class="action-btn" onclick="showByePopup()">bye bye</button>
+        <button class="action-btn" onclick="showWasteTimePopup()">waste your time</button>
+    </div>
+</div>
+
+<!-- Bye Bye Modal -->
+<div id="byeModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('byeModal')">&times;</span>
+        <h2>dimu kaner nise</h2>
+        <p>😑</p>
+        <button onclick="closeModal('byeModal')">Okay</button>
+    </div>
+</div>
+
+<!-- Waste Time Modal -->
+<div id="wasteTimeModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('wasteTimeModal')">&times;</span>
+        <h2>I fixed it hehe! You really think you can escape from me easily? 😇</h2>
+        <p>to madam etotuk Jehutu ascen tahole click here a click kore uddar koren:</p>
+        <a href="https://vercel-2-azure.vercel.app/" target="_blank" class="link-button">Click Here</a>
+        <br><br>
+        <button onclick="closeModal('wasteTimeModal')">Close</button>
+    </div>
+</div>
+
+<script>
+function showByePopup() { document.getElementById('byeModal').style.display='block'; }
+function showWasteTimePopup() { document.getElementById('wasteTimeModal').style.display='block'; }
+function closeModal(id) { document.getElementById(id).style.display='none'; }
+window.onclick = function(e) {
+    if(e.target===document.getElementById('byeModal')) closeModal('byeModal');
+    if(e.target===document.getElementById('wasteTimeModal')) closeModal('wasteTimeModal');
+}
+
+// Timer since Sep 10, 2025 06:42 GMT+6
+const startTime = new Date("Sep 10, 2025 06:42:00 GMT+0600").getTime();
+function updateTimer() {
+    const now = new Date().getTime();
+    let diff = now - startTime;
+
+    const days = Math.floor(diff / (1000*60*60*24));
+    diff %= (1000*60*60*24);
+    const hours = Math.floor(diff / (1000*60*60));
+    diff %= (1000*60*60);
+    const minutes = Math.floor(diff / (1000*60));
+    diff %= (1000*60);
+    const seconds = Math.floor(diff / 1000);
+
+    document.getElementById('timer').innerText = `${days} Days : ${hours} Hours : ${minutes} Minutes : ${seconds} Seconds`;
+}
+setInterval(updateTimer, 1000);
+updateTimer();
+</script>
+</body>
+</html>
